@@ -59,4 +59,8 @@ class Location extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function shoppers_active() { 
+        return $this->hasMany(Shopper::class)->where('status_id', 1);
+    }
 }

@@ -20,5 +20,6 @@ class QrCodeController extends Controller
     public function qrCode(string $uuid)
     {
         return QrCode::size(200)->generate( route('public.location', $uuid) );
+        // return route('public.location', $uuid);
     }
 }

@@ -30,6 +30,9 @@
                             <th>
                                 Check-Out
                             </th>
+                            <th>
+                                Action
+                            </th>
                         </tr>
                         </thead>
                         <tbody>

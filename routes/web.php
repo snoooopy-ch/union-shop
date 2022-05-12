@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClosureController;
+
+use App\Http\Controllers\Shopper\ShopperQueueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +32,8 @@ Route::namespace('Store')
     ->prefix('sign-in')
     ->name('public.')
     ->group(__DIR__ . '/Store/Location/public.php');
+
+Route::namespace('Shopper')
+    ->name('shopper.')
+    ->group(__DIR__ . '/Shopper/web.php');
+

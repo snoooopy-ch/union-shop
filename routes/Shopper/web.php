@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Store\Location\LocationController;
+use App\Http\Controllers\Shopper\ShopperQueueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('create')
-    ->get('/create', [LocationController::class, 'create']);
 
-Route::name('save')
-    ->post('/create', [LocationController::class, 'store']);
 
-Route::name('queue')
-    ->get('/{locationUuid}', [LocationController::class, 'queue']);
+Route::name('checkin')
+    ->post('/sign-in/{locationUuid}/check-in', [ShopperQueueController::class, 'checkIn']);
 
-Route::name('update')
-    ->post('/update/{locationUuid}', [LocationController::class, 'update']);
+Route::name('checkout')
+    ->get('checkout/{shopperUuid}', [ShopperQueueController::class, 'checkOut']);
+
+Route::name('check-pending')
+    ->get('check-pending/{shopperUuid}', [ShopperQueueController::class, 'checkPending']);

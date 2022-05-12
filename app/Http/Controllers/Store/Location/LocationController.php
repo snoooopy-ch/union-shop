@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\Location\LocationCreateRequest;
 use App\Http\Requests\Store\Location\LocationQueueRequest;
 use App\Http\Requests\Store\Location\LocationStoreRequest;
+use App\Http\Requests\Store\Location\UpdateLocationRequest;
 use App\Models\Store\Location\Location;
 use App\Services\Store\Location\LocationService;
 
@@ -93,5 +94,18 @@ class LocationController extends Controller
         return view('stores.location.queue')
             ->with('location', $location)
             ->with('shoppers', $shoppers);
+    }
+
+    public function update($storeUuid, $locationUuid, UpdateLocationRequest $request) {
+        $location = $this->location->show([
+            'uuid' => $locationUuid
+        ]);
+        $this->location->update($location['id'], [
+            'shopper_limit' => $request->shopper_limit
+        ]);
+
+        return Redirect()
+            ->back()
+            ->with('Success', 'Location has been updated successfully');
     }
 }
