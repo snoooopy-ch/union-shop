@@ -2,14 +2,19 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-12">Shopper Limit: {{ $shopperLimit }}</div>
+                <div class="col-12">Shopper Status: {{ $shopperStatus->name }}</div>
             </div>
-            <div class="row">
-                <div class="col-12">Current Active: {{ $activeShopperCount }}</div>
-            </div>
-            <div class="row">
-                <div class="col-12">Pending In Front Of Me: {{ $pendingInFrontOfMe }}</div>
-            </div>
+            @if ($shopperStatus->id != 1)
+                <div class="row">
+                    <div class="col-12">Shopper Limit: {{ $shopperLimit }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">Current Active: {{ $activeShopperCount }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">Pending In Front Of Me: {{ $pendingInFrontOfMe }}</div>
+                </div>
+            @endif
         </div>
     </div>
     

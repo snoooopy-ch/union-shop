@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class ShowPending extends Component
 {
-    public $activeShopperCount, $shopperLimit, $pendingInFrontOfMe, $shopperUuid;
+    public $activeShopperCount, $shopperLimit, $pendingInFrontOfMe, $shopperUuid, $shopperStatus;
     public $sec;
 
     protected $listeners = [
@@ -43,5 +43,7 @@ class ShowPending extends Component
                 ->get()
                 ->toArray())
             ->count();
+
+        $this->shopperStatus = $shopper->status;
     }
 }
